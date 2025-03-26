@@ -28,6 +28,8 @@ const precio = document.querySelector('#precio');
 const btnLimpiar = document.querySelector('#btnLimpiar');
 const inputCantidad = document.querySelector('#inputCantidad');
 const mensajeError = document.querySelector('.mensajeError');
+const precioTotal = document.querySelector('#precioTotal');
+
 
 formulario.addEventListener('submit', (e) => {
     const cantidad = parseInt(inputCantidad.value, 10);
@@ -37,6 +39,10 @@ formulario.addEventListener('submit', (e) => {
         mensajeError.classList.remove('ocultar');
         return; 
     }
+
+    let platoElegido = platosRestaurante.find(plato => plato.nombre === platos.value)
+    precio.value = platoElegido.precio;
+    precioTotal.textContent=`Total a pagar: $${parseInt(precio.value, 10) * cantidad}`
     mensajeError.classList.add('ocultar'); 
     e.preventDefault();
     formulario.reset();
@@ -57,6 +63,8 @@ platosRestaurante.forEach(plato => {
 platos.addEventListener('change', () => {
     let platoElegido = platosRestaurante.find(plato => plato.nombre === platos.value)
     precio.value = platoElegido.precio;
+    precioTotal.textContent=`Total a pagar: +$${precio*cantidad}`
+    
 });
 
 inputCantidad.addEventListener('input', () => {
@@ -68,3 +76,4 @@ inputCantidad.addEventListener('input', () => {
         mensajeError.classList.add('ocultar'); 
     }
 });
+
