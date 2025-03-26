@@ -27,4 +27,24 @@ a{
     display: flex;
     justify-content: center;
 }
-
+.ocultar {
+    display: none;
+}
+.mensajeError {
+    width: 100%;
+    color: white;
+    background-color: red;
+    padding: 1rem;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+.formulario {
+    width: 100%;
+}
+.input-form {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+}
